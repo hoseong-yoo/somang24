@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMCA 소망나무 기부 캠페인 입금 계좌</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* 스크롤 가능하게 설정 */
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .account-info, .privacy-policy {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc; /* 실선 테두리 */
+            background-color: transparent;
+            font-size: 16px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        .account-number {
+            padding: 10px 20px;
+            background-color: #f37021; /* 요청하신 주황색 */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 600px;
+        }
+        label, input {
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #f37021; /* 요청하신 주황색 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .thank-you-message {
+            margin-top: 30px;
+            font-size: 18px;
+            text-align: center;
+            color: black; /* 소중한 기부 메시지 색상 검정으로 수정 */
+        }
+        .organization-name {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #f37021; /* 주황색 */
+            font-weight: bold;
+        }
+        .highlight-text {
+            font-weight: bold;
+            color: #f37021; /* 주황색 강조 */
+        }
+        h2 {
+            font-size: 16px; /* 폰트 크기를 줄여서 요청 */
+            margin-bottom: 10px; /* 위 여백을 늘림 */
+        }
+        .privacy-policy {
+            margin-bottom: 10px; /* 개인정보 동의 설명과 더 가까워지도록 아래 여백 줄임 */
+        }
+        .spacer {
+            margin-top: 40px; /* 두 줄 띄우기 */
+        }
+    </style>
+</head>
+<body>
+
+<h1>MMCA 소망나무 기부 캠페인 입금 계좌</h1>
+
+<!-- 계좌 정보 (배경 없음, 실선 네모 칸) -->
+<div class="account-info">
+    <p>예금주: <strong>사회복지법인 월드비전</strong></p>
+    <p>계좌번호: <strong>26980074318544</strong> (우리은행)</p>
+</div>
+
+<!-- 계좌번호 복사 버튼 (배경 추가) -->
+<div class="account-number" id="accountNumber">계좌번호 복사하기(클릭↑)</div>
+
+<!-- 두 줄 여백 추가 -->
+<div class="spacer"></div>
+
+<!-- 메시지 폼 추가 시작 -->
+<h2>이벤트 안내용 카카오 알림톡 발송을 위해 연락처를 남겨주세요(선택사항)</h2>
+
+<!-- 개인정보 수집 동의 설명글 (연락처 입력칸과 체크박스 사이로 배치) -->
+<div class="privacy-policy">
+    <p><strong>개인 정보 수집 동의(선택)</strong></p>
+    <p>① 개인 정보의 수집 및 이용 목적 <br>
+    - 소망나무 캠페인 기부자 이벤트 참가용 카카오 알림톡 발송</p>
+    <p>② 수집 및 이용하려는 개인정보의 항목 : 휴대전화</p>
+    <p>③ 개인정보를 제공받는 자의 개인정보 보유 및 이용 기간 : 알림톡 발송 후 즉시 파기</p>
+</div>
+
+<!-- 연락처 입력 폼 -->
+<form action="https://formspree.io/f/mkgnjdzo" method="POST">
+    <!-- 휴대폰 번호 입력 필드 -->
+    <label for="phone">연락처 (휴대폰 번호):</label>
+    <input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3,4}-\d{4}" placeholder="010-1234-5678" required>
+
+    <!-- 연락처 수집 동의 체크박스 -->
+    <label for="contact-consent">
+        <input type="checkbox" id="contact-consent" name="contact-consent" required>
+        연락처 수집에 동의합니다.
+    </label>
+
+    <!-- 제출 버튼 텍스트 변경 -->
+    <button type="submit">연락처 제출하기</button>
+</form>
+
+<!-- 소중한 기부 메시지 -->
+<div class="thank-you-message">
+    소중한 기부에 감사드립니다. <br>
+    따뜻한 2024년 연말, 힘찬 2025년 새해 보내시기를 바랍니다. 감사합니다.
+</div>
+
+<!-- 사회복지법인 월드비전 텍스트 -->
+<div class="organization-name">
+    사회복지법인 월드비전
+</div>
+
+<script>
+    document.getElementById('accountNumber').addEventListener('click', function() {
+        const accountNumber = '26980074318544'; // 복사할 계좌번호
+        navigator.clipboard.writeText(accountNumber).then(() => {
+            alert('계좌번호가 복사되었습니다: ' + accountNumber);
+        }).catch(err => {
+            console.error('복사 실패: ', err);
+        });
+    });
+</script>
+
+</body>
+</html>
